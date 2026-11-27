@@ -1,0 +1,33 @@
+{
+  "schema": "shared-methods@1",
+  "note": "Source of truth for this project's shared-methods pack. Edit here, then run `python3 scripts/shared_methods.py render --write`. Replace the example rule; keep the shape.",
+  "scan": {
+    "python": {
+      "paths_from": "qa/pipeline.json",
+      "paths_key": "stacks.python.paths.src",
+      "suffixes": [".py"]
+    }
+  },
+  "rules": [
+    {
+      "concept": "atomic-json-write",
+      "title": "Write JSON files only through the project's atomic writer",
+      "owner": "src/<package>/<module>.py",
+      "use": {
+        "python": ["<package>.<module>.write_json_atomic"]
+      },
+      "wraps": {
+        "python": ["json", "pathlib"]
+      },
+      "instead_of": {
+        "python": ["\\btmp\\.replace\\(", "write_text\\(json\\.dumps\\("]
+      },
+      "applies_when": [
+        "writing or rewriting a JSON state, cache or manifest file"
+      ],
+      "tags": ["io", "json"],
+      "body": "Call the owner's writer so a run killed mid-write leaves the previous file intact. Do not write a tmp-and-rename yourself.",
+      "allowlist": {}
+    }
+  ]
+}
