@@ -1,0 +1,17 @@
+{
+  "name": "earcanjos",
+  "owner": {
+    "name": "earcanjos-development",
+    "url": "https://github.com/earcanjos-development"
+  },
+  "description": "earcanjos-development agent skills as an installable Claude Code plugin.",
+  "plugins": [
+    {
+      "name": "earcanjos-skills",
+      "source": "./",
+      "description": "Human-readable commits and PRs, WARNING on platform overrides, one owner module per shared concept.",
+      "category": "engineering",
+      "keywords": ["engineering", "skills", "commits", "pull-requests"]
+    }
+  ]
+}

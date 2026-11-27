@@ -1,0 +1,17 @@
+{
+  "name": "earcanjos-skills",
+  "version": "0.1.0",
+  "description": "earcanjos-development agent skills: human-readable commits and PRs, WARNING on platform overrides, one owner module per shared concept.",
+  "author": {
+    "name": "earcanjos-development",
+    "url": "https://github.com/earcanjos-development"
+  },
+  "repository": "https://github.com/earcanjos-development/skills",
+  "keywords": ["engineering", "skills", "commits", "pull-requests", "refactoring"],
+  "skills": [
+    "./skills/engineering/human-commit",
+    "./skills/engineering/human-pr",
+    "./skills/engineering/refactor-update-shared-methods",
+    "./skills/productivity/override-warning"
+  ]
+}
